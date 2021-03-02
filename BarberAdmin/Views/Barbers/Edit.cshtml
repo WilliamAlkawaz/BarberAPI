@@ -1,0 +1,77 @@
+﻿@model BarberAdmin.Models.Barber
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "Barbers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Barber</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.BarberID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhotoFile, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="Image" />
+            @Html.ValidationMessageFor(model => model.PhotoFile, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.About, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.About, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.About, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label for="Sun">Sun</label>
+            <input type="checkbox" id="Sun" name="Sun" value="Sun">
+            <label for="Mon">Mon</label>
+            <input type="checkbox" id="Mon" name="Mon" value="Mon">
+            <label for="Tue">Tue</label>
+            <input type="checkbox" id="Tue" name="Tue" value="Tue">
+            <label for="Wed">Wed</label>
+            <input type="checkbox" id="Wed" name="Wed" value="Wed">
+            <label for="Thur">Thur</label>
+            <input type="checkbox" id="Thur" name="Thur" value="Thur">
+            <label for="Fri">Fri</label>
+            <input type="checkbox" id="Fri" name="Fri" value="Fri">
+            <label for="Sat">Sat</label>
+            <input type="checkbox" id="Sat" name="Sat" value="Sat">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
