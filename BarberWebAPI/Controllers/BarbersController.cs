@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using BarberWebAPI.Models;
 
 namespace BarberWebAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class BarbersController : ApiController
     {
         private BarberAdminDB db = new BarberAdminDB();
@@ -19,7 +23,23 @@ namespace BarberWebAPI.Controllers
         // GET: api/Barbers
         public List<Barber> GetBarbers()
         {
+            var jjj = db.Barbers.ToList();
             return db.Barbers.ToList();
+        }
+        public HttpResponseMessage GetImage(int id)
+        {
+            Barber barber = db.Barbers.Find(id);
+            // return File(barber.PhotoFile, barber.ImageMimeType);
+            var stream = new MemoryStream(barber.PhotoFile);
+
+            // Compose a response containing the image and return to the user.
+            var result = new HttpResponseMessage();
+
+            result.Content = new StreamContent(stream);
+            result.Content.Headers.ContentType =
+                    new MediaTypeHeaderValue(barber.ImageMimeType);
+
+            return result;
         }
 
         // GET: api/Barbers/5

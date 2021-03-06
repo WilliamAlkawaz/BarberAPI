@@ -87,3 +87,6 @@ C:\Users\em12846\source\repos\BarberAdmin\BarberWebAPI\obj\Debug\BarberWebAPI.cs
 C:\Users\em12846\source\repos\BarberAdmin\BarberWebAPI\obj\Debug\BarberWebAPI.csproj.CopyComplete
 C:\Users\em12846\source\repos\BarberAdmin\BarberWebAPI\obj\Debug\BarberWebAPI.dll
 C:\Users\em12846\source\repos\BarberAdmin\BarberWebAPI\obj\Debug\BarberWebAPI.pdb
+C:\Users\em12846\source\repos\BarberAdmin\BarberWebAPI\bin\System.Web.Cors.dll
+C:\Users\em12846\source\repos\BarberAdmin\BarberWebAPI\bin\System.Web.Http.Cors.dll
+C:\Users\em12846\source\repos\BarberAdmin\BarberWebAPI\bin\System.Web.Http.Cors.xml

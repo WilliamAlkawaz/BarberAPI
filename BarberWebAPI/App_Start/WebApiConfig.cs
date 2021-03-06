@@ -10,10 +10,15 @@ namespace BarberWebAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            config.EnableCors(); 
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            config.Routes.MapHttpRoute(
+                name: "GetPhotoApi",
+                routeTemplate: "api/GetPhoto/{id}",
+                defaults: new { controller = "Barbers", action = "GetImage" }
+            );
 
             config.Routes.MapHttpRoute(
                 name: "PostBookingApi",
