@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using BarberAdmin.Models;
 
 namespace BarberAdmin.Controllers
-{
+{    
     public class BarbersController : Controller
     {
         private BarberAdminDB db = new BarberAdminDB();
